@@ -95,13 +95,27 @@
         
         <form method="POST">
             <div class="form-group">
-                <label for="username">用户名：</label>
-                <input type="text" id="username" name="username" required>
+                <label for="username">用户名（邮箱或手机号）：</label>
+                <input type="text" id="username" name="username" required 
+                       placeholder="请输入邮箱或手机号">
             </div>
             
             <div class="form-group">
                 <label for="password">密码：</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" required
+                       placeholder="请输入密码">
+            </div>
+            
+            <div class="form-group">
+                <label for="full_name">姓名（可选）：</label>
+                <input type="text" id="full_name" name="full_name" 
+                       placeholder="请输入真实姓名">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">邮箱（可选）：</label>
+                <input type="email" id="email" name="email" 
+                       placeholder="请输入邮箱地址">
             </div>
             
             <button type="submit">注册</button>
