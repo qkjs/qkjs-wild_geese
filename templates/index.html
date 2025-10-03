@@ -142,14 +142,15 @@
         {% endwith %}
         
         <!-- 用户状态显示 -->
-        {% if session.user %}
+    {% if session.user_id %}
             <div class="user-info">
                 <h3>欢迎回来！</h3>
-                <p>您已登录为: <strong>{{ session.user }}</strong></p>
+                <p>您已登录为: <strong>{{ session.user_id }}</strong></p>
                 <p>用户类型: <strong>{{ session.user_type }}</strong></p>
             </div>
             <div class="nav-buttons">
-                <a href="{{ url_for('auth.logout') }}" class="btn btn-secondary">退出登录</a>
+                <a href="{{ url_for('main.detail') }}" class="btn btn-success">查看我的详情</a>
+                <a href="{{ url_for('auth.api_logout') }}" class="btn btn-secondary">退出登录</a>
             </div>
         {% else %}
             <div class="welcome-message">
@@ -158,8 +159,8 @@
             </div>
             
             <div class="nav-buttons">
-                <a href="{{ url_for('auth.login') }}" class="btn btn-primary">用户登录</a>
-                <a href="{{ url_for('auth.register') }}" class="btn btn-success">新用户注册</a>
+                <a href="{{ url_for('auth.page_login') }}" class="btn btn-primary">用户登录</a>
+                <a href="{{ url_for('auth.page_register') }}" class="btn btn-success">新用户注册</a>
             </div>
         {% endif %}
         

@@ -4,6 +4,6 @@
 """
 
 from .models import db, User, UserInfo, AuditLog, UserService
-from .auth_blueprint import auth_bp
+from .viewer import auth_bp
 
 __all__ = ['db', 'User', 'UserInfo', 'AuditLog', 'UserService', 'auth_bp']

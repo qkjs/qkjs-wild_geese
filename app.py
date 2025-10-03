@@ -1,7 +1,8 @@
-from flask import Flask, render_template, session
+from flask import Flask
 from auth import auth_bp, db
 from config import config
 import os
+from main import main_bp
 
 def create_app(config_name=None):
     app = Flask(__name__)
@@ -14,14 +15,14 @@ def create_app(config_name=None):
     db.init_app(app)
     
     # 注册蓝图
+    app.register_blueprint(main_bp)
     app.register_blueprint(auth_bp, url_prefix='/auth')
-    
-    @app.route('/')
-    def index():
-        return render_template('index.html')
     
     return app
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(debug=True)
+    host = os.environ.get('HOST', '127.0.0.1')
+    port = int(os.environ.get('PORT', '5000'))
+    debug = app.config.get('DEBUG', True)
+    app.run(host=host, port=port, debug=debug)
